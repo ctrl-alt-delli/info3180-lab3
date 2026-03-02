@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h2>Contact Form</h2>
+<p class="subtitle">Fill in this form to contact the site owners.</p>
+
+<form method="POST" class="contact-form">
+    {{ form.csrf_token }}
+
+    <div class="form-group">
+        <label for="{{ form.name.id }}" class="form-label">
+            {{ form.name.label.text }} <span class="required">(Required)</span>
+        </label>
+        <p class="field-hint">Please enter your full name</p>
+        {{ form.name(class="form-control", placeholder="") }}
+    </div>
+
+    <hr class="field-separator">
+
+    <div class="form-group">
+        <label for="{{ form.email.id }}" class="form-label">
+            {{ form.email.label.text }} <span class="required">(Required)</span>
+        </label>
+        <p class="field-hint">Please enter your e-mail address</p>
+        {{ form.email(class="form-control", placeholder="") }}
+    </div>
+
+    <hr class="field-separator">
+
+    <div class="form-group">
+        <label for="{{ form.subject.id }}" class="form-label">
+            {{ form.subject.label.text }} <span class="required">(Required)</span>
+        </label>
+        <p class="field-hint">Please enter the subject for your message.</p>
+        {{ form.subject(class="form-control", placeholder="") }}
+    </div>
+
+    <hr class="field-separator">
+
+    <div class="form-group">
+        <label for="{{ form.message.id }}" class="form-label">
+            {{ form.message.label.text }} <span class="required">(Required)</span>
+        </label>
+        <p class="field-hint">Please enter the message you would like to send.</p>
+        {{ form.message(class="form-control textarea", rows="5", placeholder="") }}
+    </div>
+
+    <hr class="field-separator">
+
+    <button type="submit" class="submit-btn">Send</button>
+</form>
+
+{% endblock %}
